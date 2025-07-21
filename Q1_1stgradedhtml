@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RB09 - ESPOCIA PORTFOLIO</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+</head>
+<body>
+  <section class="w3-container">
+   <marquee direction="right">YOOOOOOO</marquee>
+   <h1> Personal Information</h1>
+   <li> Name - Mateo Inigo Espocia </li>
+   <li> PSHS Sections - T / Da / Rb </li>
+   <li> Birthday - October 23 </li>
+   <li> Favorite Math Topic - Euclidean Geometry </li>
+   <nav>
+    <ul>
+      <li><a href="./public/Q1_1stGraded.html"> First Exercise </a> </li>
+    </ul>
+   </nav>
+  </section>
+</body>
+</html>
