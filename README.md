@@ -1,5 +1,4 @@
-# CS3_1stQtrPortfolio_Mendoza
-
+# CS3_1stQtrPortfolio_RBEspocia
 guten morgen everybody.
 
 it is i, mateo inigo espocia, the math nerd of the batch.
