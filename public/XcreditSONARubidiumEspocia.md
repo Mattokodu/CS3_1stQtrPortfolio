@@ -24,4 +24,4 @@ While some of the information that Marcos gave is correct, some (like the 20-pes
 My phrase is as follows.
 # Way way way easier said than done
 
-![SONA 2025](sona2025.png)
+![SONA 2025](https://i.imgur.com/jLtOJMg.png)
