@@ -1,3 +1,6 @@
+## Take on SONA July 2025 of Pres. Ferdinand R. Marcos Jr.
+# by Mateo Espocia from 9 - Rubidium
+
 1. Give 2-4 key points from the SONA 2025 that you found interesting
 
 - more teaching positions
