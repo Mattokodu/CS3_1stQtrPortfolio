@@ -1,3 +1,8 @@
+<head>
+    <title>RB09 - Q1 1st NonGraded</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+</head>
+
 <script>
     
     age = window.prompt("How old are you?")
@@ -5,9 +10,18 @@
     
     numPerDay = window.prompt("How many bossa nova or samba songs do you listen to per day?")
 
+    sure = window.confirm("você tem certeza (ARE YOU SURE????)")
+
     total = numPerDay * 365 * (maxage-age)
 
-    document.write("You will listen to approximately " + total + " more bossa nova or samba songs (not necessarily distinct, on repeat) in your lifetime.<br>")
+    if (sure) {
+        document.write("You will listen to approximately " + total + " more bossa nova or samba songs (not necessarily distinct, on repeat) in your lifetime.<br>")
+    }
+    else {
+        document.write("HOW DID YOU ACCESS THIS????")
+    }
+
+    
 
     
 
