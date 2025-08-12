@@ -1,0 +1,42 @@
+<head>
+    <title>RB09 - TESTING SITE</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+</head>
+
+<p style="font-size: 50px;">
+    <script>
+        const number = parseInt(window.prompt("What is your favorite number?"))
+        let isPrime = true
+        let out = ""
+    
+        if (number === 1) {
+            out = "1 is uhhh kinda its own thing really"
+        }
+    
+        else if (number > 1) {
+    
+            for (let i = 2; i < number; i++) {
+                if (number % i == 0) {
+                    isPrime = false
+                    break
+                }
+            }
+    
+            if (isPrime) {
+                out = `${number} is prime!!!!`
+            } else {
+                out = `${number} is composite. `
+            }
+        }
+
+        if (out == '') {
+            document.write("I DONT THINK YOU INPUTTED A NUMBER!!!!!!!!")
+        }
+        else {
+            document.write(out)
+        }
+        
+    </script>
+</p>
+
+<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"> <img src="https://tse4.mm.bing.net/th/id/OIP.7J0ExuWuj2KLqoALNF4U4gHaHa?cb=thfvnext&rs=1&pid=ImgDetMain&o=7&rm=3" alt="sad" width="300" height="200"> </a>
