@@ -18,6 +18,9 @@
 
    <button type="button" onclick="checkIt()">Accept input</button>
 
+   <p> <span id="result"></span> </p><br><br>
+   <marquee style="font-size: 40px;" scrollamount="40"> <span id="yay"> </span></marquee>
+
     <script>
 
        var dNumber = Math.floor(Math.random() * 100) + 1; // generates a number from 1  to 100 when the page loads
@@ -29,13 +32,18 @@
             hula = parseInt(document.getElementById("guess").value);
 
             if (dNumber == hula) {
-                alert("You guessed it! The number was " + dNumber);
+                ans = "You guessed it! The number was " + dNumber;
+                yay = "YIPPEEEEEE YIPPEEEEEE YIPPEEEEEE YIPPEEEEEE";
             } else if (hula > dNumber) {
-                alert("Too high! Try again.");
+                ans = "Too high! Try again.";
+                yay = "";
             } else {
-                alert("Too low! Try again.");
+                ans = "Too low! Try again.";
+                yay = "";
             }
-         
+
+            document.getElementById("result").textContent = ans;
+            document.getElementById("yay").textContent = yay;
         }
     </script>
 
