@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<head>
+    <title>RB09 - ESPOCIA, 3rd Graded Exercise</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+</head>
+<html>
+<body>
+
+   <h2> Q1 3rd Graded Exercise submitted by Mateo Espocia of 9-Rubidium</h2>
+   <p> I haz a number from 1 to 100. Guess it plez (Optimal strategy is 7 guessez, can thee beat that??/??//??)</p>
+   <!-- Enter your HTML tags below  but before the opening script tag -->
+
+    <form action="./public/Q13GRubidiumEspocia.html">
+        <label for="guess">Enter your Guess: </label>
+        <input type="number" id="guess" name="guess"><br><br>
+    </form>
+
+   <button type="button" onclick="checkIt()">Accept input</button>
+
+    <script>
+
+       var dNumber = Math.floor(Math.random() * 100) + 1; // generates a number from 1  to 100 when the page loads
+
+        
+
+        function checkIt() {
+
+            hula = parseInt(document.getElementById("guess").value);
+
+            if (dNumber == hula) {
+                alert("You guessed it! The number was " + dNumber);
+            } else if (hula > dNumber) {
+                alert("Too high! Try again.");
+            } else {
+                alert("Too low! Try again.");
+            }
+         
+        }
+    </script>
+
+</body>
+
+</html>
