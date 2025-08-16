@@ -1,8 +1,12 @@
 table, th, td {
   border:1px solid black;
 }
-h1, h2, li, p, a, marquee, label, th, input, button, div {
+h1, h2 {
     font-family: 'Verdana';
+} 
+li, p, a, marquee, label, th, input, button {
+    font-family: 'Verdana';
+    font-size: 24px;
 } 
 a {
   color: black;
@@ -12,8 +16,4 @@ body {
 }
 input {
   background-color: gray;
-}
-td {
-  text-align: center;
-  vertical-align: middle;
 }
