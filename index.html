@@ -2,14 +2,8 @@
 <html>
 <head>
   <title>RB09 - ESPOCIA PORTFOLIO (website dumps)</title>
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="stylesheet" href="./index.css">
 </head>
-
-<style>
-table, th, td {
-  border:1px solid black;
-}
-</style>
 
 <body>
   <section class="w3-container">
@@ -43,33 +37,50 @@ table, th, td {
         <td><a href="./public/Q13GRubidiumEspocia.html"> Third Exercise </a></td>
         <td><a href="./public/Q1TestingSite.html"> Testing Site </a></td>
       </tr>
+      <tr>
+        <td> </td>
+        <td><a href="./mathproblems.html"> Math Problems </a></td>
+      </tr>
     </table>
 
 
    <h1> More Extra Stuff: </h1>
 
-   <p>
-    Here are some of my personal favorite
-    <a href="./mathproblems.html"> math problems </a>:
-    
-   </p>
+   <a href="#" onclick="beAnnoying()">Don't click me.</a><br><br><br>
 
-   <a href="#" onclick="beAnnoying()">dont click me.</a><br><br><br>
+   <p style="font-weight:bold;"> INTERACTIVE DVD!!!! </p>
 
-   <h3 style="font-weight:bold;"> INTERACTIVE DVD SOON!!!! </h3>
+   <label for="w">Width: </label>
+    <input type="number" id="w" value="600">
+    <label for="h">Height: </label>
+    <input type="number" id="h" value="400">
+    <label for="h">Speed: (only updates when hits a wall) </label>
+    <input type="number" id="s" value="60">
+    <button onclick="updateSize()">Update</button><br><br><br>
 
-   <marquee direction="down" width="600" height="400" behavior="alternate" style="border:solid" scrollamount="60">
-    <marquee behavior="alternate" style="font-size:30px; font-weight:bold;" scrollamount="60"><dvd>DVD</dvd></marquee>
+   <marquee id="dee" direction="down" width="600" height="400" behavior="alternate" style="border:solid" scrollamount="60">
+    <marquee id="vee" behavior="alternate" style="font-size:30px;" scrollamount="60">DVD</marquee>
     </marquee>
-
-    <p> The total cost of the meal is: <span id="total"></span> </p>
 
     <script>
       function beAnnoying() {
         document.write("HAHAHAHAHHAHAHAHAHAHHAHAHAHAHAHHAHAHAHAHHAAHHAHAHAHAHAHAH");
-        for (let i = 1; i < 100000; i++) {
-          window.alert("LOL");
+        for (let i = 1; i < 99999; i++) {
+          window.alert("YOU CANT ESCAPE NERDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
         }
+      }
+
+      function updateSize() {
+        let w = document.getElementById("w").value;
+        let h = document.getElementById("h").value;
+        let s = document.getElementById("s").value;
+        let marquee = document.getElementById("dee");
+        let marquee2 = document.getElementById("vee");
+
+        marquee.setAttribute("width", w);
+        marquee.setAttribute("height", h);
+        marquee.setAttribute("scrollamount", s);
+        marquee2.setAttribute("scrollamount", s);
       }
     </script>
 

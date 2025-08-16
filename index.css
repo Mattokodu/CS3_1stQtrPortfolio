@@ -1,0 +1,11 @@
+table, th, td {
+  border:1px solid black;
+}
+h1 {
+    font-family: 'Verdana';
+    font-size: 40px;
+} 
+li, p, a, marquee, label, th {
+   font-family: 'Verdana';
+   font-size: 24px;
+}
