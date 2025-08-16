@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RB09 - ESPOCIA PORTFOLIO (website dumps)</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+
+   <a href="#" onclick="beAnnoying()">Don't click me.</a>
+
+   <div style="font-weight:bold; font-size:50px"> INTERACTIVE DVD!!!! </div><br><br>
+
+   <label for="w">Width: </label>
+    <input type="number" id="w" value="600">
+    <label for="h">Height: </label>
+    <input type="number" id="h" value="400">
+    <label for="h">Speed: (only updates when hits a wall) </label>
+    <input type="number" id="s" value="60">
+    <button onclick="updateSize()">Update</button><br><br><br>
+
+   <marquee id="dee" direction="down" width="600" height="400" behavior="alternate" style="border:solid" scrollamount="60">
+    <marquee id="vee" behavior="alternate" style="font-size:30px;" scrollamount="60">DVD</marquee>
+    </marquee>
+
+    <script>
+      function beAnnoying() {
+        document.write("HAHAHAHAHHAHAHAHAHAHHAHAHAHAHAHHAHAHAHAHHAAHHAHAHAHAHAHAH");
+        for (let i = 1; i < 99999; i++) {
+          window.alert("YOU CANT ESCAPE NERDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
+        }
+      }
+
+      function updateSize() {
+        let w = document.getElementById("w").value;
+        let h = document.getElementById("h").value;
+        let s = document.getElementById("s").value;
+        let marquee = document.getElementById("dee");
+        let marquee2 = document.getElementById("vee");
+
+        marquee.setAttribute("width", w);
+        marquee.setAttribute("height", h);
+        marquee.setAttribute("scrollamount", s);
+        marquee2.setAttribute("scrollamount", s);
+      }
+    </script>
+
+  
+
+  </section>
+</body>
+</html>
