@@ -14,24 +14,34 @@
     <p id="message" class="game"></p>
     <p id="counter" class="game"></p>
     <button onclick="restart()" class="game">Try Again</button>
-    <marquee id="congrats" class="game"></marquee>
+    <marquee id="congrats" class="game" scrollamount="60"></marquee>
     
     <script>
-      let secretWord = ["m", "u", "t", "t", "e", "r", "i", "n", "g", "m", "a", "t", "e", "o"];
+      let words = ["miraculousmateo", "mutteringmateo", "memorablemateo", "magnificentmateo", "melancholicmateo", "mathematicalmateo", "meaningfulmateo", "measurementmateo"];
+      let word = words[Math.floor(Math.random() * words.length)];
+      let secretWord = [];
       let guessedWord = [];
-      let number = 7;
+      let guesses = [];
+      let number = 5;
       let congrats = "";
       document.getElementById("counter").textContent = "You have " + number + " guesses left.";
-      for (let i = 0; i < secretWord.length; i++) {
+      for (let i = 0; i < word.length; i++) {
+        secretWord.push(word[i]);
         guessedWord.push("_");
       }
     
       document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
+      
+      function haveSameElements(arr1, arr2) {
+        return arr1.every((element, index) => element === arr2[index]);
+      }
     
       function makeGuess() {
         let guess = document.getElementById("guessInput").value.toLowerCase();
+        
 
-        if (!(guessedWord.includes(guess)) && number != 0) {
+        if (!(guesses.includes(guess)) && number != 0) {
+            guesses.push(guess);
             let correct = false;
         
             for (let i = 0; i < secretWord.length; i++) {
@@ -45,38 +55,39 @@
                 number--;
             }
 
-
-
-
-        if (secretWord == guessedWord) {
-            congrats = "YIPPEEE";
+        if (haveSameElements(secretWord, guessedWord)) {
+            congrats = "YIPPEEEEEEE YOU GUESSED THE WORD!!!!!!";
         }
         
             document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
             document.getElementById("counter").textContent = "You have " + number + " guesses left.";
             document.getElementById("message").textContent = correct ? "✅ Correct!" : "❌ Try again.";
-            xo
             document.getElementById("guessInput").value = "";
+            document.getElementById("congrats").textContent = congrats;
         }
-
         
         
       }
 
       function restart() {
-        if (number == 0) {
-            secretWord = ["m", "u", "t", "t", "e", "r", "i", "n", "g", "m", "a", "t", "e", "o"];
+        if (haveSameElements(secretWord, guessedWord) || number <= 0) {
+            word = words[Math.floor(Math.random() * words.length)];
+            secretWord = [];
             guessedWord = [];
-            number = 7;
+            guesses = [];
+            number = 5;
+            congrats = "";
             document.getElementById("counter").textContent = "You have " + number + " guesses left.";
-            for (let i = 0; i < secretWord.length; i++) {
-                guessedWord.push("_");
+            for (let i = 0; i < word.length; i++) {
+              secretWord.push(word[i]);
+              guessedWord.push("_");
             }
 
             document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
             document.getElementById("counter").textContent = "You have " + number + " guesses left.";
             document.getElementById("message").textContent = "";
             document.getElementById("guessInput").value = "";
+            document.getElementById("congrats").textContent = congrats;
         }
         
       }
