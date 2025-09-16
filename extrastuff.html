@@ -52,5 +52,57 @@
   
 
   </section>
+
+  <h1>My Favorite Numbers</h1>
+  <ul id="numberList"></ul>
+
+  <script>
+      let list = document.getElementById("numberList");
+      for (let i = 1; i <= 10; i++) {
+        list.innerHTML += `<li>${i}</li>`;
+      }
+  </script>
+
+  <h1>My Favorite Albums</h1>
+  <ul id="albumList"></ul>
+  <label for="song">New Album </label>
+  <input type="string" id="song" value="600">
+  <button onclick="updatesong()">Update</button><br><br><br>
+
+  <script>
+    let albums = ["Wave", "Rainbow Goblins", "Amoroso"];
+    let l = document.getElementById("albumList");
+
+    for (let i = 0; i < albums.length; i++) {
+      l.innerHTML += `<li>${albums[i]}</li>`;
+    }
+
+    function updatesong() {
+      let newsong = document.getElementById("song").value;
+      albums.push(newsong);
+    }
+  </script>
+
+<h1>Guess a Letter</h1>
+<input type="text" id="letterInput" maxlength="1">
+<button onclick="addGuess()">Guess</button>
+<p>Guessed letters: <span id="guesses"></span></p>
+
+<script>
+  let guessedLetters = [];
+
+  function addGuess() {
+    let letter = document.getElementById("letterInput").value;
+    if (!(guessedLetters.includes(letter)) && letter != "") {
+      guessedLetters.push(letter);
+      document.getElementById("guesses").textContent = guessedLetters.join(", ");
+      document.getElementById("letterInput").value = "";
+    }
+    
+  }
+</script>
+
+<a href="./wordgame.html">Word Game</a>
+
 </body>
 </html>

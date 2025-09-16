@@ -17,3 +17,6 @@ body {
 input {
   background-color: gray;
 }
+pre {
+  background-color: black;
+}

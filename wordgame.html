@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RB09 - ESPOCIA PORTFOLIO (website dumps)</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+
+    <h1>Guess My Word</h1>
+    <p id="wordDisplay" class="game"></p>
+    <input type="text" id="guessInput" class="game" maxlength="1">
+    <button onclick="makeGuess()" class="game">Guess</button>
+    <p id="message" class="game"></p>
+    <p id="counter" class="game"></p>
+    <button onclick="restart()" class="game">Try Again</button>
+    <marquee id="congrats" class="game"></marquee>
+    
+    <script>
+      let secretWord = ["m", "u", "t", "t", "e", "r", "i", "n", "g", "m", "a", "t", "e", "o"];
+      let guessedWord = [];
+      let number = 7;
+      let congrats = "";
+      document.getElementById("counter").textContent = "You have " + number + " guesses left.";
+      for (let i = 0; i < secretWord.length; i++) {
+        guessedWord.push("_");
+      }
+    
+      document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
+    
+      function makeGuess() {
+        let guess = document.getElementById("guessInput").value.toLowerCase();
+
+        if (!(guessedWord.includes(guess)) && number != 0) {
+            let correct = false;
+        
+            for (let i = 0; i < secretWord.length; i++) {
+                if (secretWord[i] == guess) {
+                    guessedWord[i] = guess;
+                    correct = true;
+                }
+            }
+
+            if (!correct) {
+                number--;
+            }
+
+
+
+
+        if (secretWord == guessedWord) {
+            congrats = "YIPPEEE";
+        }
+        
+            document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
+            document.getElementById("counter").textContent = "You have " + number + " guesses left.";
+            document.getElementById("message").textContent = correct ? "✅ Correct!" : "❌ Try again.";
+            xo
+            document.getElementById("guessInput").value = "";
+        }
+
+        
+        
+      }
+
+      function restart() {
+        if (number == 0) {
+            secretWord = ["m", "u", "t", "t", "e", "r", "i", "n", "g", "m", "a", "t", "e", "o"];
+            guessedWord = [];
+            number = 7;
+            document.getElementById("counter").textContent = "You have " + number + " guesses left.";
+            for (let i = 0; i < secretWord.length; i++) {
+                guessedWord.push("_");
+            }
+
+            document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
+            document.getElementById("counter").textContent = "You have " + number + " guesses left.";
+            document.getElementById("message").textContent = "";
+            document.getElementById("guessInput").value = "";
+        }
+        
+      }
+    </script>
+
+</body>
+</html>

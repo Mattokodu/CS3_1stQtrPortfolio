@@ -23,3 +23,12 @@ td {
   align-items: center;
   gap: 20px;
 }
+pre, code {
+  background-color:darkblue;
+  color: white;
+}
+.game {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 30px;
+}

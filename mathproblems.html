@@ -54,4 +54,31 @@
             for all positive integers a and b with \( a+b \le n+1 \), the point \( (a,b) \) lies on at least one of the lines; and
             exactly \(k\) of the \(n\) lines are sunny.</li>
     </body>
+
+    <pre><code class="language-js">// 1. Intro: Why loops?
+        console.log(&quot;Without loops:&quot;);
+        console.log(1);
+        console.log(2);
+        console.log(3);
+        // ... tedious!
+        
+        console.log(&quot;With a for loop:&quot;);
+        for (let i = 1; i &lt;= 3; i++) {
+          console.log(i);
+        }
+        
+        // 2. While loop example
+        let count = 1;
+        while (count &lt;= 3) {
+          console.log(&quot;Count is:&quot;, count);
+          count++;
+        }
+        
+        // 3. Do...while loop example
+        let num = 1;
+        do {
+          console.log(&quot;Number is:&quot;, num);
+          num++;
+        } while (num &lt;= 3);
+    </code></pre>
 </html>
