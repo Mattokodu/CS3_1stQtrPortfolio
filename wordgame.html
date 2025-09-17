@@ -7,7 +7,7 @@
 
 <body>
 
-    <h1>Guess My Word</h1>
+    <h1 class="game">Guess The Word (or Words)</h1>
     <p id="wordDisplay" class="game"></p>
     <input type="text" id="guessInput" class="game" maxlength="1">
     <button onclick="makeGuess()" class="game">Guess</button>
@@ -15,19 +15,19 @@
     <p id="counter" class="game"></p>
     <p id="guesses" class="game"></p>
     <button onclick="restart()" class="game">Try Again</button>
-    <br>
+    <br><br>
     <marquee id="congrats" style="font-size:50px;" scrollamount="60"></marquee>
     <br>
     
     <script>
       let words = ["miraculousmateo", "mutteringmateo", "memorablemateo", "magnificentmateo", "melancholicmateo", "mathematicalmateo", "meaningfulmateo", 
-      "measurementmateo", "tungtungsahur", "tralalelotralala", "ballerinacappucina", "sixseven"];
+      "measurementmateo", "malansangmateo", "malakasnamateo", "malinismateo", "maamoynamateo", "maawaingmateo", "tungtungsahur", "tralalelotralala", "sixseven"];
       let word = words[Math.floor(Math.random() * words.length)];
       let secretWord = [];
       let guessedWord = [];
       let guesses = [];
       let number = 5;
-      let congrats = "                              ";
+      let congrats = " ";
       document.getElementById("counter").textContent = "You have " + number + " guesses left.";
       for (let i = 0; i < word.length; i++) {
         secretWord.push(word[i]);
