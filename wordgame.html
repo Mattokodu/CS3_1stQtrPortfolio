@@ -14,10 +14,13 @@
     <p id="message" class="game"></p>
     <p id="counter" class="game"></p>
     <button onclick="restart()" class="game">Try Again</button>
-    <marquee id="congrats" class="game" scrollamount="60"></marquee>
+    <br>
+    <marquee id="congrats" scrollamount="60"></marquee>
+    <br>
     
     <script>
-      let words = ["miraculousmateo", "mutteringmateo", "memorablemateo", "magnificentmateo", "melancholicmateo", "mathematicalmateo", "meaningfulmateo", "measurementmateo"];
+      let words = ["miraculousmateo", "mutteringmateo", "memorablemateo", "magnificentmateo", "melancholicmateo", "mathematicalmateo", "meaningfulmateo", 
+      "measurementmateo", "tungtungsahur", "tralalelotralala", "ballerinacappucina", "sixseven"];
       let word = words[Math.floor(Math.random() * words.length)];
       let secretWord = [];
       let guessedWord = [];
@@ -89,9 +92,25 @@
             document.getElementById("guessInput").value = "";
             document.getElementById("congrats").textContent = congrats;
         }
-        
+        else {
+          document.getElementById("congrats").textContent = "To restart, you need to use all guesses or guess the entire word.";
+        }
       }
     </script>
+
+    <p>
+      Reflection:
+      <li>What's one thing you learned about loops this quarter?<br><br><div class="bold">Loops useful if want repeat process</div></li><br>
+
+      <li>How do arrays make your code more powerful?<br><br><div class="bold">Arrays store many data at once, easily accessible</div></li><br>
+
+      <li>What's one feature you'd add if you had more time?<br><br>
+        <div class="bold">I would fix the formatting of the text and add styles/design 
+          (I need my pairmate to be good at designing I can handle the html/js stuff I think)</div>
+      </li><br>
+
+      
+    </p>
 
 </body>
 </html>
