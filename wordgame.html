@@ -13,9 +13,10 @@
     <button onclick="makeGuess()" class="game">Guess</button>
     <p id="message" class="game"></p>
     <p id="counter" class="game"></p>
+    <p id="guesses" class="game"></p>
     <button onclick="restart()" class="game">Try Again</button>
     <br>
-    <marquee id="congrats" scrollamount="60"></marquee>
+    <marquee id="congrats" style="font-size:50px;" scrollamount="60"></marquee>
     <br>
     
     <script>
@@ -26,7 +27,7 @@
       let guessedWord = [];
       let guesses = [];
       let number = 5;
-      let congrats = "";
+      let congrats = "                              ";
       document.getElementById("counter").textContent = "You have " + number + " guesses left.";
       for (let i = 0; i < word.length; i++) {
         secretWord.push(word[i]);
@@ -59,14 +60,15 @@
             }
 
         if (haveSameElements(secretWord, guessedWord)) {
-            congrats = "YIPPEEEEEEE YOU GUESSED THE WORD!!!!!!";
+            congrats = "YIPPEEEEEEE YOU GUESSED THE WORD!!!!!! PLEASE TRY AGAIN, YOU WILL MOST LIKELY GET A DIFFERENT WORD";
         }
         
             document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
             document.getElementById("counter").textContent = "You have " + number + " guesses left.";
-            document.getElementById("message").textContent = correct ? "✅ Correct!" : "❌ Try again.";
+            document.getElementById("message").textContent = correct ? "✅ Tama!" : "❌ Mali.";
             document.getElementById("guessInput").value = "";
             document.getElementById("congrats").textContent = congrats;
+            document.getElementById("guesses").textContent = "Guessed Letters: " + guesses.join(", ");
         }
         
         
