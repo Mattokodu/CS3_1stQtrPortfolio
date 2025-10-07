@@ -5,7 +5,7 @@ table, th, td {
 }
 h1, h2, li, p, a, marquee, label, th, input, button, div, td {
     font-family: 'Verdana';
-    text-align: center;
+
 } 
 a {
   color: black;
