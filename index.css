@@ -1,5 +1,5 @@
 table, th, td {
-  border:1px solid black;
+  border: 0.5px solid black;
   font-size: 25px;
 }
 h1, h2, li, p, a, marquee, label, th, input, button, div, td {
