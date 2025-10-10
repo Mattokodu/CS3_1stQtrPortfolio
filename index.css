@@ -3,7 +3,7 @@ table, th, td {
   font-size: 25px;
   text-align: center;
 }
-h1, h2, li, p, a, marquee, label, th, input, button, div, td {
+h1, h2, h3, li, p, a, marquee, label, th, input, button, div, td {
     font-family: 'Verdana';
 
 } 
