@@ -12,6 +12,8 @@ a {
 }
 body {
   background-color: lightblue;
+  font-family: Verdana, system-ui, Arial, sans-serif;
+  line-height: 1.4;
 }
 input {
   background-color: gray;
