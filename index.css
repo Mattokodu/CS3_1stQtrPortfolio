@@ -6,11 +6,6 @@ table, th, td {
 h1, h2, h3, li, p, a, marquee, label, th, input, button, div, td {
     font-family: 'Verdana';
 } 
-nav {
-  padding: 20px 20px;
-  background-color:rgb(213, 239, 255);
-  font-size: 20px;
-}
 a {
   color: black;
 }
@@ -42,4 +37,59 @@ pre, code {
   display: flex; 
   justify-content: center; 
   align-items: center;
+}
+
+
+/* subject to changes */
+
+header, footer {
+  background: #f5f5f5;
+  padding: 12px 16px;
+}
+
+main {
+  padding: 16px;
+}
+
+nav {
+  padding: 20px 20px;
+  background-color:rgb(213, 239, 255);
+  font-size: 20px;
+}
+
+.brand {
+  font-weight: 600;
+  text-decoration: none;
+  color: #222;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 12px;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: #0066cc;
+}
+
+.nav-list a[aria-current="page"] {
+  font-weight: 600;
+}
+
+/* Footer */
+.social-list {
+  list-style: none;
+  margin: 0 0 8px 0;
+  padding: 0;
+  display: flex;
+  gap: 12px;
+}
+
+.social-list a {
+  text-decoration: none;
+  color: #0066cc;
 }
