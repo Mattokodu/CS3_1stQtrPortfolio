@@ -5,8 +5,12 @@ table, th, td {
 }
 h1, h2, h3, li, p, a, marquee, label, th, input, button, div, td {
     font-family: 'Verdana';
-
 } 
+nav {
+  padding: 20px 20px;
+  background-color:rgb(213, 239, 255);
+  font-size: 20px;
+}
 a {
   color: black;
 }
@@ -38,7 +42,4 @@ pre, code {
   display: flex; 
   justify-content: center; 
   align-items: center;
-}
-.bold {
-  font-weight: bold;
 }
