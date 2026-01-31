@@ -42,9 +42,26 @@
 </head>
 
 <body>
-    <h1> Show Students who Signed Up </h1>
-    <h2> <a href="Q3_3GRbEspocia.html">Back to Sign Up</a> </h2> 
+    
     <div class="content">
+        <h1> Show Students who Signed Up </h1>
+        <h2> <a href="Q3_3GRbEspocia.html">Back to Sign Up</a> </h2> 
+        <br>
+        Select your club: 
+            <select id="club" name="club" required onblur="onBlur()">
+                <option value="mathclub">Math Club</option>
+                <option value="pyhs">PYHS</option>
+                <option value="atom">ATOM</option>
+                <option value="astrosoc">AstroSoc</option>
+                <option value="tomorrow">Tomorrow</option>
+                <option value="karyo">Karyo Biomedical</option>
+            </select>
+        <br><br>
+
+        Total Signups: 696969
+
+        <br><br>
+
         <table>
             <colgroup>
                 <col span="1" style="background-color: rgb(225, 230, 233)">
@@ -53,18 +70,20 @@
                 <col span="1" style="background-color: rgb(255, 255, 255)">
                 <col span="1" style="background-color: rgb(255, 255, 255)">
                 <col span="1" style="background-color: rgb(255, 255, 255)">
+                <col span="1" style="background-color: rgb(255, 255, 255)">
             </colgroup>
             <tr>
-                <th>Student ID</th>
+                <th>Club</th>
+                <th>ID</th>
                 <th>Full Name</th>
-                <th>Birthday</th>
-                <th>Email Address</th>
-                <th>Phone Number</th>
-                <th>Grade Level</th>
+                <th>Grade</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Intern/Extern</th>
             </tr>
             <!-- Sample Data Rows -->
             <tr>
-                <td>localStorage.something</td>
+                <td id="club"></td>
                 <td>John Doe</td>
                 <td>2005-06-15</td>
                 <td>john.doe@example.com</td>
@@ -75,6 +94,7 @@
     </div>
 
     <script>
+        document.getElementById("club").textContent = JSON.stringify(localStorage.getItem(key));
         // JavaScript to retrieve and display sign-up data from localStorage
         // This is a placeholder; actual implementation would depend on how data is stored
     </script>

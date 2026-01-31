@@ -46,7 +46,7 @@
             <label for="phone">Phone Number:</label><br>
             <input class="input"type="tel" id="phone" name="phone" required onblur="onBlur()"><br><br>
             <label for="grade">Grade Level:</label><br>
-            <select id="cars" name="cars" required>
+            <select id="grade" name="grade" required>
                 <option value="g1">Grade 1</option>
                 <option value="g2">Grade 2</option>
                 <option value="g3">Grade 3</option>
@@ -67,7 +67,7 @@
             <label for="extern">Extern</label><br><br>
 
             <label for="intern">Preferred Organization / Club:</label><br><br>
-            <select id="cars" name="cars" required onblur="onBlur()">
+            <select id="club" name="club" required onblur="onBlur()">
                 <option value="mathclub">Math Club</option>
                 <option value="pyhs">PYHS</option>
                 <option value="atom">ATOM</option>
@@ -79,7 +79,7 @@
             <label for="reason">Why do you want to join?</label><br>
             <input class="input" type="text" id="reason" name="reason" required onblur="onBlur()"><br><br>
 
-            <input type="submit" value="Submit form"><br>
+            <input id="submit" type="submit" value="Submit form"><br>
 
             <input type="reset" value="Reset form">
 
@@ -108,6 +108,46 @@
                 }
             }
         };
+        
+        // Saving to LocalStorage
+
+        document.getElementById("submit").onclick = function() {
+            localStorage.setItem("studentid", document.getElementById("studentid").value);
+            localStorage.setItem("fullname", document.getElementById("fullname").value);
+            localStorage.setItem("bday", document.getElementById("bday").value);
+            localStorage.setItem("email", document.getElementById("email").value);
+            localStorage.setItem("phone", document.getElementById("phone").value);
+            localStorage.setItem("grade", document.getElementById("grade").value);
+            localStorage.setItem("intext", document.querySelector('input[name="intext"]:checked').value);
+            localStorage.setItem("club", document.getElementById("club").value);
+        };
+
+        document.addEventListener("DOMContentLoaded", function() {
+        const savedName = localStorage.getItem("fullname");
+        const savedTheme = localStorage.getItem("theme") || "light";
+        const savedFavoriteBand = localStorage.getItem("favoriteBand");
+
+        if (savedFavoriteBand) document.getElementById("favoriteBand").value = savedFavoriteBand;
+
+        if (savedName) document.getElementById("name").value = savedName;
+        document.getElementById("theme").value = savedTheme;
+
+        
+
+        applyTheme(savedTheme);
+
+        if (savedName || savedTheme) {
+        document.getElementById("status").textContent = "Loaded saved data from localStorage!";
+        }
+
+        const savedProfile = localStorage.getItem("profile");
+        if (savedProfile) {
+            const p = JSON.parse(savedProfile);
+            document.getElementById("name").value = p.name || "";
+            document.getElementById("theme").value = p.theme || "light";
+            document.getElementById("favoriteBand").value = p.favoriteBand || "";
+        }
+        });
     </script>
 
 </body>
