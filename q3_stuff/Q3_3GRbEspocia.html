@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mateo's 2nd Graded Exercise for Q3 CS3</title>
+  <style>
+    body {
+      background-color: lightblue;
+    }
+    * {
+        font-family: Verdana, Tahoma, sans-serif;
+    }
+    .form {
+        background-color: white;
+        width: 400px;
+        padding: 20px;
+        border: 2px solid black;
+        border-radius: 10px;
+        margin: auto;
+        margin-top: 30px;
+    }
+
+    #reason {
+        width: 100%;
+        height: 100px;
+    }
+
+    label:focus, input:focus, select:focus {
+        outline: 1px solid black;
+        font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+    <h1 style="text-align: center; font-size: xx-large; font-weight: bold"> HTML Form Sample (Rb09) </h1>
+    <div class="form">
+        <form onsubmit="alert('Thank you for submitting!')" onreset="alert('Form has been reset.')">
+            <label for="studentid">StudentID:</label><br>
+            <input class="input" type="number" id="studentid" name="studentid" required onblur="onBlur()"><br><br>
+            <label for="fullname">Full name:</label><br>
+            <input class="input" type="text" id="fullname" name="fullname" required onblur="onBlur()"><br><br>
+            <label for="bday">Birthday:</label><br>
+            <input class="input" type="date" id="bday" name="bday" required onblur="onBlur()"><br><br>
+            <label for="email">Email Address:</label><br>
+            <input class="input" type="email" id="email" name="email" required onblur="onBlur()"><br><br>
+            <label for="phone">Phone Number:</label><br>
+            <input class="input"type="tel" id="phone" name="phone" required onblur="onBlur()"><br><br>
+            <label for="grade">Grade Level:</label><br>
+            <select id="cars" name="cars" required>
+                <option value="g1">Grade 1</option>
+                <option value="g2">Grade 2</option>
+                <option value="g3">Grade 3</option>
+                <option value="g4">Grade 4</option>
+                <option value="g5">Grade 5</option>
+                <option value="g6">Grade 6</option>
+                <option value="g7">Grade 7</option>
+                <option value="g8">Grade 8</option>
+                <option value="g9">Grade 9</option>
+                <option value="g10">Grade 10</option>
+                <option value="g11">Grade 11</option>
+                <option value="g12">Grade 12</option>
+            </select><br><br>
+            <label for="intext">Intern or Extern:</label><br>
+            <input type="radio" id="intern" name="intext" value="Intern" checked>
+            <label for="intern">Intern</label><br>
+            <input type="radio" id="extern" name="intext" value="Extern">
+            <label for="extern">Extern</label><br><br>
+
+            <label for="intern">Preferred Organization / Club:</label><br><br>
+            <select id="cars" name="cars" required onblur="onBlur()">
+                <option value="mathclub">Math Club</option>
+                <option value="pyhs">PYHS</option>
+                <option value="atom">ATOM</option>
+                <option value="astrosoc">AstroSoc</option>
+                <option value="tomorrow">Tomorrow</option>
+                <option value="karyo">Karyo Biomedical</option>
+            </select><br><br>
+
+            <label for="reason">Why do you want to join?</label><br>
+            <input class="input" type="text" id="reason" name="reason" required onblur="onBlur()"><br><br>
+
+            <input type="submit" value="Submit form"><br>
+
+            <input type="reset" value="Reset form">
+
+            <button onclick="window.location.href='viewSignUps.html'">View Signups</button>
+        </form>
+    </div>
+
+    <div class="references">
+        <ul>
+            <li><a href="https://www.w3schools.com/html/html_forms_attributes.asp">https://www.w3schools.com/html/html_forms_attributes.asp</a></li>
+            <li><a href="https://www.w3schools.com/tags/ev_onblur.asp">https://www.w3schools.com/tags/ev_onblur.asp</a></li>
+            <li><a href="https://www.w3schools.com/jsref/met_document_getelementsbytagname.asp">https://www.w3schools.com/jsref/met_document_getelementsbytagname.asp</a></li>
+            <li>The thing in vscode that autogenerates code</li>
+        </ul>
+    </div>
+
+    <script>
+        function onBlur() {
+            const inputs = document.getElementsByTagName("input");
+            for (let i = 0; i < inputs.length; i++) {
+                const input = inputs[i];
+                if (input.value === "") {
+                    input.style.border = '2px solid red';
+                } else {
+                    input.style.border = '';
+                }
+            }
+        };
+    </script>
+
+</body>
+</html>
