@@ -48,7 +48,8 @@
         <h2> <a href="Q3_3GRbEspocia.html">Back to Sign Up</a> </h2> 
         <br>
         Select your club: 
-            <select id="club" name="club" required onblur="onBlur()">
+            <select id="club" name="club" onchange="loadSignups()">
+                <option value="all">- - - - - -</option>
                 <option value="mathclub">Math Club</option>
                 <option value="pyhs">PYHS</option>
                 <option value="atom">ATOM</option>
@@ -94,7 +95,21 @@
     </div>
 
     <script>
-        document.getElementById("club").textContent = JSON.stringify(localStorage.getItem(key));
+        function loadSignups() {
+            // Placeholder function to load sign-up data from localStorage
+            // Actual implementation would depend on how data is stored
+            document.addEventListener("DOMContentLoaded", function() {
+                savedClub = localStorage.getItem("club");
+                if (savedClub) {
+                    document.getElementById("club").value = savedClub;
+                }
+            });
+
+            
+        }
+
+        
+        
         // JavaScript to retrieve and display sign-up data from localStorage
         // This is a placeholder; actual implementation would depend on how data is stored
     </script>
