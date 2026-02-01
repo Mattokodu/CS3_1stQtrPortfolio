@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mateo's 2nd Graded Exercise for Q3 CS3</title>
+  <title>View Sign Ups</title>
   <style>
     body {
       background-color: lightblue;
@@ -25,8 +25,7 @@
     }
 
     label:focus, input:focus, select:focus {
-        outline: 1px solid black;
-        font-weight: bold;
+        outline: 1px solid green;
     }
 
     content {
@@ -48,7 +47,7 @@
         <h2> <a href="Q3_3GRbEspocia.html">Back to Sign Up</a> </h2> 
         <br>
         Select your club: 
-            <select id="club" name="club" onchange="loadSignups()">
+            <select id="filter" name="club" onchange="loadSignups()">
                 <option value="all">- - - - - -</option>
                 <option value="mathclub">Math Club</option>
                 <option value="pyhs">PYHS</option>
@@ -59,7 +58,7 @@
             </select>
         <br><br>
 
-        Total Signups: 696969
+        <div id="totalsignups"> Total Signups: 696969 </div>
 
         <br><br>
 
@@ -92,20 +91,65 @@
                 <td>Grade 10</td>
             </tr>
         </table>
+
+        <table id="output">
+            <colgroup>
+                <col span="1" style="background-color: rgb(225, 230, 233)">
+                <col span="1" style="background-color: rgb(255, 255, 255)">
+                <col span="1" style="background-color: rgb(255, 255, 255)">
+                <col span="1" style="background-color: rgb(255, 255, 255)">
+                <col span="1" style="background-color: rgb(255, 255, 255)">
+                <col span="1" style="background-color: rgb(255, 255, 255)">
+                <col span="1" style="background-color: rgb(255, 255, 255)">
+            </colgroup>
+        </table>
+
+
     </div>
 
     <script>
         function loadSignups() {
             // Placeholder function to load sign-up data from localStorage
             // Actual implementation would depend on how data is stored
-            document.addEventListener("DOMContentLoaded", function() {
-                savedClub = localStorage.getItem("club");
-                if (savedClub) {
-                    document.getElementById("club").value = savedClub;
-                }
+
+            let output = document.getElementById("output");
+            let total = document.getElementById("totalsignups");
+
+            let filter = document.getElementById("filter").value;
+            if (filter == "all") {
+                let filtered = data;
+            } else {
+                let filtered = data.filter(s => s.club == filter);
+            }
+
+            let html = `
+                <tr>
+                    <th>Club</th>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Grade</th>
+                    <th>Email</th>
+                    <th>Mobile No.</th>
+                    <th>Intern/Extern</th>
+                </tr>
+            `;
+
+            filtered.forEach(s => {
+                html += `
+                <tr>
+                    <td>${s.club}</td>
+                    <td>${s.studentid}</td>
+                    <td>${s.fullname}</td>
+                    <td>${s.grade}</td>
+                    <td>${s.email}</td>
+                    <td>${s.phone}</td>
+                    <td>${s.intext}</td>
+                </tr>
+                `;
             });
 
-            
+            output.innerHTML = html;
+            total.innerText = "Total: " + filtered.length;
         }
 
         

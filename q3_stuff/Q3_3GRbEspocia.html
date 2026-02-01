@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mateo's 2nd Graded Exercise for Q3 CS3</title>
+  <title>Q3_3GRbEspocia</title>
   <style>
     body {
       background-color: lightblue;
@@ -112,45 +112,26 @@
         // Saving to LocalStorage
 
         document.getElementById("submit").onclick = function() {
-            localStorage.setItem("studentid", document.getElementById("studentid").value);
-            localStorage.setItem("fullname", document.getElementById("fullname").value);
-            localStorage.setItem("bday", document.getElementById("bday").value);
-            localStorage.setItem("email", document.getElementById("email").value);
-            localStorage.setItem("phone", document.getElementById("phone").value);
-            localStorage.setItem("grade", document.getElementById("grade").value);
-            localStorage.setItem("intext", document.querySelector('input[name="intext"]:checked').value);
-            localStorage.setItem("club", document.getElementById("club").value);
+            let signUps = JSON.parse(localStorage.getItem("signups")) || [];
+
+            let form = document.forms[0];
+
+            let newSignup = {
+                studentid: document.getElementById("studentid").value,
+                fullname: document.getElementById("fullname").value,
+                bday: document.getElementById("bday").value,
+                email: document.getElementById("email").value,
+                phone: document.getElementById("phone").value,
+                grade: document.getElementById("grade").value,
+                intext: document.querySelector('input[name="intext"]:checked').value,
+                club: document.getElementById("club").value
+            };
+
+            signUps.push(newSignup);
+            localStorage.setItem("signUps", JSON.stringify(signUps));
         };
 
-        /* 
-        document.addEventListener("DOMContentLoaded", function() {
-        const savedName = localStorage.getItem("fullname");
-        const savedTheme = localStorage.getItem("theme") || "light";
-        const savedFavoriteBand = localStorage.getItem("favoriteBand");
 
-        if (savedFavoriteBand) document.getElementById("favoriteBand").value = savedFavoriteBand;
-
-        if (savedName) document.getElementById("name").value = savedName;
-        document.getElementById("theme").value = savedTheme;
-
-        
-
-        applyTheme(savedTheme);
-
-        if (savedName || savedTheme) {
-        document.getElementById("status").textContent = "Loaded saved data from localStorage!";
-        }
-
-        const savedProfile = localStorage.getItem("profile");
-        if (savedProfile) {
-            const p = JSON.parse(savedProfile);
-            document.getElementById("name").value = p.name || "";
-            document.getElementById("theme").value = p.theme || "light";
-            document.getElementById("favoriteBand").value = p.favoriteBand || "";
-        }
-        });
-        
-        */
     </script>
 
 </body>
