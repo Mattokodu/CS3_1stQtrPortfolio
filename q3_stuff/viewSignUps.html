@@ -104,6 +104,8 @@
             </colgroup>
         </table>
 
+        <div id="output"></div>
+
 
     </div>
 
@@ -111,6 +113,7 @@
         function loadSignups() {
             // Placeholder function to load sign-up data from localStorage
             // Actual implementation would depend on how data is stored
+            let data = JSON.parse(localStorage.getItem("signUps"));
 
             let output = document.getElementById("output");
             let total = document.getElementById("totalsignups");
@@ -123,6 +126,7 @@
             }
 
             let html = `
+                <table>
                 <tr>
                     <th>Club</th>
                     <th>ID</th>
@@ -147,6 +151,8 @@
                 </tr>
                 `;
             });
+
+            html += `</table>`
 
             output.innerHTML = html;
             total.innerText = "Total: " + filtered.length;

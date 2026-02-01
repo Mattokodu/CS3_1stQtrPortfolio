@@ -114,18 +114,31 @@
         document.getElementById("submit").onclick = function() {
             let signUps = JSON.parse(localStorage.getItem("signups")) || [];
 
-            let form = document.forms[0];
+            const form = document.forms[0];
+
+            /*
+            let newSignup = {
+                studentid: JSON.stringify(document.getElementById("studentid").value),
+                fullname: JSON.stringify(document.getElementById("fullname").value),
+                bday: JSON.stringify(document.getElementById("bday").value),
+                email: JSON.stringify(document.getElementById("email").value),
+                phone: JSON.stringify(document.getElementById("phone").value),
+                grade: JSON.stringify(document.getElementById("grade").value),
+                intext: JSON.stringify(document.querySelector('input[name="intext"]:checked').value),
+                club: JSON.stringify(document.getElementById("club").value)
+            };
+            */
 
             let newSignup = {
-                studentid: document.getElementById("studentid").value,
-                fullname: document.getElementById("fullname").value,
-                bday: document.getElementById("bday").value,
-                email: document.getElementById("email").value,
-                phone: document.getElementById("phone").value,
-                grade: document.getElementById("grade").value,
-                intext: document.querySelector('input[name="intext"]:checked').value,
-                club: document.getElementById("club").value
-            };
+                studentid: form.studentid.value,
+                fullname: form.fullname.value,
+                bday: form.bday.value,
+                email: form.email.value,
+                phone: form.phone.value,
+                grade: form.grade.value,
+                intext: form.intext.value,
+                club: form.club.value
+            }
 
             signUps.push(newSignup);
             localStorage.setItem("signUps", JSON.stringify(signUps));
