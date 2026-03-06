@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mateo's 2nd Graded Exercise for Q3 CS3</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <h1 style="text-align: center; font-size: xx-large; font-weight: bold"> HTML Form Sample (Rb09) </h1>
+    <div class="form">
+        <h2>Add an Album</h2>
+        <form onsubmit="alert('Thank you for submitting!')" onreset="alert('Form has been reset.')">
+            <label for="title">Title: </label><br>
+            <input class="input" type="number" id="title" name="title" required onblur="onBlur()"><br><br>
+            <label for="year">Year:</label><br>
+            <input class="input" type="text" id="year" name="year" required onblur="onBlur()"><br><br>
+            <label for="genre">Genre:</label><br>
+            <select id="genre" name="genre" required>
+                <option value="jazz">Jazz</option>
+                <option value="rock">Rock</option>
+                <option value="classical">Classical</option>
+                <option value="romantic">Romantic</option>
+                <option value="fusion">Jazz Fusion</option>
+                <option value="metal">Metal </option>
+            </select><br><br>
+
+            <label for="rating">Rating:</label><br>
+
+            <span onclick="gfg(1)" class="star" >★</span>
+            <span onclick="gfg(2)" class="star">★</span>
+            <span onclick="gfg(3)" class="star">★</span>
+            <span onclick="gfg(4)" class="star">★</span>
+            <span onclick="gfg(5)" class="star">★</span>
+            <br><br>
+
+            <input type="submit" value="Submit form">
+
+            <input type="reset" value="Reset form">
+        </form>
+    </div>
+
+    <div class="references">
+        <ul>
+            <li><a href="https://www.w3schools.com/html/html_forms_attributes.asp">https://www.w3schools.com/html/html_forms_attributes.asp</a></li>
+            <li><a href="https://www.w3schools.com/tags/ev_onblur.asp">https://www.w3schools.com/tags/ev_onblur.asp</a></li>
+            <li><a href="https://www.w3schools.com/jsref/met_document_getelementsbytagname.asp">https://www.w3schools.com/jsref/met_document_getelementsbytagname.asp</a></li>
+            <li>The thing in vscode that autogenerates code</li>
+        </ul>
+    </div>
+
+    <div class="others">
+        Here are some of my personal favorite albums <b>you</b> should check out!
+
+        <ul>
+            <li><a href="https://www.example.com">Jamiroquai - Emergency on Planet Earth</a></li>
+            <li><a href="example.com">Masayoshi Takanaka - Rainbow Goblins</a></li>
+        </ul>
+    </div>
+
+    <script>
+        function onBlur() {
+            const inputs = document.getElementsByTagName("input");
+            for (let i = 0; i < inputs.length; i++) {
+                const input = inputs[i];
+                if (input.value === "") {
+                    input.style.border = '2px solid red';
+                } else {
+                    input.style.border = '';
+                }
+            }
+        };
+
+        
+        // To access the stars
+        let stars = 
+            document.getElementsByClassName("star");
+        let output = 
+            document.getElementById("output");
+
+        // Funtion to update rating
+        function gfg(n) {
+            remove();
+            for (let i = 0; i < n; i++) {
+                if (n == 1) cls = "one";
+                else if (n == 2) cls = "two";
+                else if (n == 3) cls = "three";
+                else if (n == 4) cls = "four";
+                else if (n == 5) cls = "five";
+                stars[i].className = "star " + cls;
+            }
+            output.innerText = "Rating is: " + n + "/5";
+        }
+        // To remove the pre-applied styling
+        function remove() {
+            let i = 0;
+            while (i < 5) {
+                stars[i].className = "star";
+                i++;
+            }
+        }
+    </script>
+
+</body>
+</html>
