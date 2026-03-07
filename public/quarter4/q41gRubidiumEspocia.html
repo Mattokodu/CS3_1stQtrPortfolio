@@ -11,9 +11,9 @@
         <h2>Add an Album</h2>
         <form onsubmit="alert('Thank you for submitting!')" onreset="alert('Form has been reset.')">
             <label for="title">Title: </label><br>
-            <input class="input" type="number" id="title" name="title" required onblur="onBlur()"><br><br>
+            <input class="input" type="text" id="title" name="title" required onblur="onBlur()"><br><br>
             <label for="year">Year:</label><br>
-            <input class="input" type="text" id="year" name="year" required onblur="onBlur()"><br><br>
+            <input class="input" type="number" id="year" name="year" required onblur="onBlur()"><br><br>
             <label for="genre">Genre:</label><br>
             <select id="genre" name="genre" required>
                 <option value="jazz">Jazz</option>
@@ -26,11 +26,11 @@
 
             <label for="rating">Rating:</label><br>
 
-            <span onclick="gfg(1)" class="star" >★</span>
-            <span onclick="gfg(2)" class="star">★</span>
-            <span onclick="gfg(3)" class="star">★</span>
-            <span onclick="gfg(4)" class="star">★</span>
-            <span onclick="gfg(5)" class="star">★</span>
+            <span onclick="gfg(1)" class="star" id="rating1">★</span>
+            <span onclick="gfg(2)" class="star" id="rating2">★</span>
+            <span onclick="gfg(3)" class="star" id="rating3">★</span>
+            <span onclick="gfg(4)" class="star" id="rating4">★</span>
+            <span onclick="gfg(5)" class="star" id="rating5">★</span>
             <br><br>
 
             <input type="submit" value="Submit form">
@@ -70,6 +70,25 @@
             }
         };
 
+        // LocalStorage time!!1
+
+        let number = 0;
+
+        document.getElementById("submit").onclick = function() {
+            let signUps = JSON.parse(localStorage.getItem(`signups${number}`)) || [];
+
+            const form = document.forms[0];
+
+            let newSignup = {
+                title: form.title.value,
+                year: form.year.value,
+                genre: form.genre.value,
+            }
+
+            signUps.push(newSignup);
+            localStorage.setItem(`signUps${number}`, JSON.stringify(signUps));
+            number++;
+        };
         
         // To access the stars
         let stars = 
