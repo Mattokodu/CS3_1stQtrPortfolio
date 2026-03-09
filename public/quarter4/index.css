@@ -14,6 +14,15 @@
         margin-top: 30px;
     }
 
+    #albumList {
+        width: 80%;
+        background-color: rgb(163, 163, 213);
+        padding: 20px;
+        border-radius: 10px;
+        margin: auto;
+        margin-top: 30px;
+    }
+
     #reason {
         width: 100%;
         height: 100px;
@@ -33,21 +42,10 @@
     /* STAR STUFF */
 
     .star {
-    font-size: 5vh;
+    font-size: 3vh;
     cursor: pointer;
     }
-    .one {
-    color: rgb(196, 37, 37);
-    }
-    .two {
-    color: rgb(255, 106, 0);
-    }
-    .three {
-    color: rgb(201, 206, 70);
-    }
-    .four {
-    color: rgb(62, 187, 17);
-    }
-    .five {
-    color: rgb(14, 123, 186);
+
+    .yellow{
+    color:rgb(12, 92, 222);
     }
