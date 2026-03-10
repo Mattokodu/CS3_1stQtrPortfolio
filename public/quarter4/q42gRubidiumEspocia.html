@@ -39,16 +39,16 @@
 
             <button id="addalbum">Add Album</button>
 
-            <button onclick="localStorage.clear()">Reset Values</button>
+            <button onclick="deleteAll()">Remove All</button>
         </form>
     </div>
 
+    
     <div id="text2">
         <h2>Album List: </h2>
         <div id="albumList">
         </div>
     </div>
-    
     
 
     <div class="references">
@@ -89,6 +89,7 @@
         stars.forEach((star)=>{
             star.addEventListener("click", function(){
 
+                // i get this but i kinda dont get it also
                 rating = Number(this.dataset.value);
 
                 stars.forEach((s,index)=>{
@@ -103,6 +104,8 @@
         });
 
         document.getElementById("addalbum").addEventListener("click", addAlbum);
+        document.getElementById("deletealbum").addEventListener("click", deleteAlbum);
+        document.getElementById("updatealbum").addEventListener("click", updateAlbum);
 
 
         function addAlbum(){
@@ -131,7 +134,7 @@
 
             localStorage.setItem("albums", JSON.stringify(albums));
 
-            displayalbums();
+            displayAlbums();
 
             document.getElementById("title").value = "";
             document.getElementById("year").value = "";
@@ -142,8 +145,7 @@
 
         }
 
-
-        function displayalbums(){
+        function displayAlbums(){
 
             const albumList = document.getElementById("albumList");
 
@@ -161,6 +163,7 @@
                 div.innerHTML = `<tr><ul><li>
                 ${album.title} by ${album.author} (${album.year}) - ${album.genre} Rating: 
                 <span style="color:gold">${starDisplay}</span></li></ul><tr>
+                <button id="deletealbum">Delete</button>
                 `;
 
                 albumList.appendChild(div);
@@ -169,10 +172,18 @@
 
         }
 
-        function deletealbums() {
+        function deleteAll() {
 
             localStorage.clear();
 
+        }
+
+        function updateAlbum() {
+            // etc
+        }
+
+        function deleteAlbum() {
+            // etc
         }
 
         window.onload = displayalbums;
