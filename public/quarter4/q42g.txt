@@ -1,0 +1,8 @@
+{
+    "albums": "[{\"title\":\"1234\",\"year\":\"1234\",\"author\":\"1234\",\"genre\":\"Jazz\",\"rating\":\"3\"},{\"title\":\"Five Hundred YEars\",\"year\":\"2026\",\"author\":\"Mateo Espocia\",\"genre\":\"Rock\",\"rating\":\"4\"}]"
+}
+
+albums[i].title
+albums[i].year
+albums[i].author
+albums[i].genre
