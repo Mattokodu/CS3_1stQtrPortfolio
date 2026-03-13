@@ -7,10 +7,10 @@
 
 <body>
     <h1 style="text-align: center; font-size: xx-large; font-weight: bold"> HTML Form Sample (Rb09) </h1>
-    <h3> This was possibly the hardest thing ever </h3>
+    <h3> This was possibly the hardest thing ever but i feel good </h3>
     <div class="form">
         <h2>Add an Album</h2>
-        <form onsubmit="alert('Thank you for submitting!')" onreset="alert('Form has been reset.')">
+        <form>
             <label for="title">Title: </label><br>
             <input class="input" type="text" id="title" name="title" required onblur="onBlur()"><br><br>
             <label for="author">Author: </label><br>
@@ -104,8 +104,6 @@
         });
 
         document.getElementById("addalbum").addEventListener("click", addAlbum);
-        document.getElementById("deletealbum").addEventListener("click", deleteAlbum);
-        document.getElementById("updatealbum").addEventListener("click", updateAlbum);
 
 
         function addAlbum(){
@@ -120,17 +118,37 @@
                 return;
             }
 
+            let albums = JSON.parse(localStorage.getItem("albums") || "[]");
+
             const album = {
                 title: title,
                 year: year,
                 author: author,
                 genre: genre,
-                rating: rating.toString()
+                rating: rating.toString(),
+                total_rating: rating,
+                repeat: 1,
+                key: albums.length + 1
             };
 
-            let albums = JSON.parse(localStorage.getItem("albums") || "[]");
+            
+            let already = false;
+            let index = -1;
 
-            albums.push(album);
+            for (let i in albums) {
+                if (albums[i].title == title && albums[i].year == year && albums[i].author == author && albums[i].genre == genre) {
+                    already = true;
+                    index = i;
+                    albums[i].repeat += 1;
+                    albums[i].total_rating += rating;
+                }
+            }
+            
+            if (already) {
+                albums[index].rating = Math.round((albums[index].total_rating)/(albums[index].repeat));
+            } else {
+                albums.push(album);
+            }
 
             localStorage.setItem("albums", JSON.stringify(albums));
 
@@ -139,9 +157,10 @@
             document.getElementById("title").value = "";
             document.getElementById("year").value = "";
             document.getElementById("author").value = "";
+            document.getElementById("genre").value = "";
 
             rating = 0;
-            stars.forEach(s=>s.classList.remove("yellow"));
+            stars.forEach(s => s.classList.remove("yellow"));
 
         }
 
@@ -153,18 +172,21 @@
 
             const albums = JSON.parse(localStorage.getItem("albums") || "[]");
 
-            albums.forEach(album=>{
+            albums.forEach(album => {
 
                 const starDisplay = "★".repeat(album.rating);
 
                 const div = document.createElement("div");
+
                 div.className = "album-card";
 
                 div.innerHTML = `<tr><ul><li>
-                ${album.title} by ${album.author} (${album.year}) - ${album.genre} Rating: 
-                <span style="color:gold">${starDisplay}</span></li></ul><tr>
-                <button id="deletealbum">Delete</button>
+                ${album.title} by ${album.author} (made in ${album.year}, Genre : ${album.genre}) Rating: 
+                <span style="color:gold">${starDisplay}</span></li></ul> (For Reference: Average Rating - ${(album.total_rating/album.repeat).toFixed(3)}) <tr>
+                <button onclick="deleteAlbum('${album.key}')">Delete</button> 
                 `;
+
+                // change to become album.key and each thing in the albums object has a unique key
 
                 albumList.appendChild(div);
 
@@ -178,15 +200,22 @@
 
         }
 
-        function updateAlbum() {
-            // etc
+        function deleteAlbum(key) {
+
+            let confirmDelete = confirm("Are you sure you want to delete this album? :((( ");
+
+            if (confirmDelete) {
+                let albums = JSON.parse(localStorage.getItem("albums") || "[]");
+
+                albums = albums.filter(album => album.key != key);
+
+                localStorage.setItem("albums", JSON.stringify(albums));
+
+                displayAlbums();
+            }
         }
 
-        function deleteAlbum() {
-            // etc
-        }
-
-        window.onload = displayalbums;
+        window.onload = displayAlbums;
         
         // LocalStorage time!!1
 
