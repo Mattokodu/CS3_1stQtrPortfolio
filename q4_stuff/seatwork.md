@@ -57,11 +57,15 @@
 
 - Guided Question: What changed compared to the default static positioning? Try to give different values to top and left or you can change it to bottom, right.
 
+It changed the position in relation to the window boundaries. When I tried to change the size of the window, the positioning of the sidebar (distance to the original position) remained constant.
+
 ### Step 2 (Fixed):
 
 - Add in css ```position: fixed; bottom: 0; width: 100%;``` to .footer.
 
 - Guided Question: What happens when you scroll the page? Why does the footer behave differently from position relative?
+
+
 
 ### Step 3 (Absolute):
 
@@ -96,6 +100,11 @@
 3. Please answer the following reflection questions (15 minutes)
 
     a. Could you summarize the differences between the CSS position values (static, relative, absolute, fixed)? 
+
+    - static:
+    - relative:
+    - absolute:
+    - fixed:
 
     b. How does absolute positioning depend on its parent element?
 
