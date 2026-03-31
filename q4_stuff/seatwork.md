@@ -145,12 +145,32 @@ The z-index determines which order the objects appear in the website. If z-index
 
     d. If you were designing a webpage for a school event, how might you use positioning to highlight important information? Please give concrete examples.
 
-    To highlight important information, we could use the absolute positioning to put the important information in the middle of the block of text. For instance, here is a sample html/css block of code:
+    To highlight important information, we could use the absolute positioning to put the important information in the middle of the block of text. For instance, here is a sample html/css block of [code](Seatwork2Example.html):
 
     ```css
-    TBA
+    .text {
+      background: rgb(192, 192, 248);
+      position: relative;
+      height: auto;
+      padding: 10px;
+    }
+
+    .important {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      translate: -50% 0%;
+      background: rgb(228, 231, 255);
+    }
     ```
 
     ```html
-    TBA
+    <div class="text"> 
+      Lorem ipsum dolor sit amet. The EVENT is the best school event that you will ever go to. 
+      Here are the following details  you need to know:
+      <div class="important"> <strong>Location: PSHS-MC SHB 404, <br> Time: 8:00 AM to 5:00 PM, <br> Date: April 1, 2026 </strong> </div>
+      <br><br><br><br><br><br>You better join now or ELSE you will face massive consequences.
+    </div>
+
+
     ```
