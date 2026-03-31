@@ -57,7 +57,7 @@
 
 - Guided Question: What changed compared to the default static positioning? Try to give different values to top and left or you can change it to bottom, right.
 
-It changed the position in relation to the window boundaries. When I tried to change the size of the window, the positioning of the sidebar (distance to the original position) remained constant.
+It changed the position in relation *away* to the original position. (static position) Giving a positive value to top moves the object that number of pixels *away* from the top.
 
 ### Step 2 (Fixed):
 
@@ -65,13 +65,15 @@ It changed the position in relation to the window boundaries. When I tried to ch
 
 - Guided Question: What happens when you scroll the page? Why does the footer behave differently from position relative?
 
-
+When scrolling the page, the footer stays fixed in place relative to the window. The footer behaves differently because of the ```position: fixed``` attribute.
 
 ### Step 3 (Absolute):
 
 - Add in css ```position: absolute; top: 66px; left: 200px;``` to .content.
 
 - Guided Question: What is the effect of position: absolute on an element? How is it different from fixed?
+
+```position: absolute``` depends on the boundaries of the parent element. It is different from fixed where it uses the boundaries of the window.
 
 ### Step 4 : (Absolute)
 
@@ -92,22 +94,63 @@ It changed the position in relation to the window boundaries. When I tried to ch
 
 - Guided Question: Why does the notice appear on top of the content? What happens if you swap the z‑index values?
 
+The z-index determines which order the objects appear in the website. If z-index turned to negative, the notice will appear behind the content.
+
 - Challenge: 
     * What changes that you have to do on the code that will position .notice box on the top right corner of the .content box? Please write the code on paper as well (both html and css on the part of .notice and .content).
+
+    ```css
+    .notice {
+      position: absolute;
+      right: 0px;
+      top: 0px;
+    }
+
+    .content {
+      position: relative;
+    }
+
+    ```
+
+    ```html
+    <div class="content">Main Content <div class="notice">Notice!</div> </div>
+    ```
+
+    The notice div is the child element of the content div.
+
     * Try to change the position of .content to relative then to fixed. What do you observed each time?
+
+    The position changed. In relative, the position is based on the static positioning, which would be directly below the sidebar. However, in fixed, the position is based on the window boundaries.
+
     * What do you observe on about the effect of z-index on .notice and .content boxes?
+
+    One just goes either behind or in front of the other element. If there are more than three elements (or boxes), then the z-index just acts like a layer count.
 
 3. Please answer the following reflection questions (15 minutes)
 
     a. Could you summarize the differences between the CSS position values (static, relative, absolute, fixed)? 
 
-    - static:
-    - relative:
-    - absolute:
-    - fixed:
+    - static: normal positioning
+    - relative: relative to the static positioning, the directions signify how much pixels away from the normal
+    - absolute: relative to the parent element or "nearest positioned ancestor"
+    - fixed: relative to the borders of the window
 
     b. How does absolute positioning depend on its parent element?
 
+    Absolute positioning depends on the boundaries of the parent element. 
+
     c. How do you differentiate sticky from fixed (you can research on sticky)?
 
+    An object under sticky positioning moves when the user scrolls, and pauses when it's at a given position. For example, without directions, it goes up until it stays at the upper left forever until the user scrolls back up.
+
     d. If you were designing a webpage for a school event, how might you use positioning to highlight important information? Please give concrete examples.
+
+    To highlight important information, we could use the absolute positioning to put the important information in the middle of the block of text. For instance, here is a sample html/css block of code:
+
+    ```css
+    TBA
+    ```
+
+    ```html
+    TBA
+    ```
