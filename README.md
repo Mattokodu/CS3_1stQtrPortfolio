@@ -1,10 +1,5 @@
-# CS3_1stQtrPortfolio_RBEspocia
-guten morgen everybody.
 
-it is i, **mateo inigo espocia**, the math nerd of the batch.
-my mission for this school year is to get more people from my batch interested in competition math.
-(actually generally, math, math is so beautiful)
-here are some of my favorite numbers:
+guten morgen everybody.
 
 ![Portfolio](https://wiztoonz.com/wp-content/uploads/2022/04/Blog-Post-Portfolio.jpg)
 
